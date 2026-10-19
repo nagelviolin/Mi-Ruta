@@ -1,0 +1,33 @@
+/* Mi Ruta · sistema de diseño base. Identidad: verde petróleo + ámbar del logo, Poppins para títulos y cifras. */
+:root{
+  --paper:#fbf9f4;--card:#fff;--ink:#0d2b2c;--muted:#5b7274;--line:#e7e2d4;
+  --brand:#086A68;--brand-deep:#05494a;--link:#086A68;--amber:#FFC21C;--on-amber:#2a1f00;
+  --ok:#15803d;--full:#c62828;--idle:#5b6b6c;
+  --font-display:'Poppins',system-ui,sans-serif;--font-body:'DM Sans',system-ui,sans-serif;
+  --r-sm:10px;--r-md:14px;--r-lg:24px;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#0c2122;--card:#133231;--ink:#eaf5f3;--muted:#92b0ad;--line:#214746;--link:#5eead4;--idle:#6f8584;
+}}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--paper);color:var(--ink);font:16px/1.4 var(--font-body);-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--font-display);margin:0}
+button{font:inherit;cursor:pointer;color:inherit}
+button:disabled{opacity:.4;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+select,input{display:block;width:100%;margin-top:6px;padding:13px 14px;border:1.5px solid var(--line);border-radius:var(--r-md);background:var(--card);color:var(--ink);font:inherit}
+select:focus,input:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 25%,transparent)}
+.field{display:block;margin-bottom:16px;color:var(--muted);font-size:.9rem;font-weight:500}
+.primary{width:100%;padding:15px;border:0;border-radius:var(--r-md);background:var(--amber);color:var(--on-amber);font:700 1.05rem var(--font-display);box-shadow:0 2px 0 rgba(0,0,0,.15)}
+.primary:active{transform:translateY(1px);box-shadow:none}
+.muted{color:var(--muted);font-size:.9rem}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;font-size:.75rem;font-weight:600;color:#fff}
+.badge.cupo{background:var(--ok)}.badge.lleno{background:var(--full)}.badge.viejo{background:var(--idle)}
+.demo{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--amber);color:var(--on-amber);font-size:.72rem;font-weight:600}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:999px;font-size:.9rem;z-index:2000;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+.brand{display:flex;align-items:center;gap:8px;font:700 1.05rem var(--font-display)}
+.brand img{width:30px;height:30px;border-radius:9px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

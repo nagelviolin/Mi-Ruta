@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#086A68">
+  <title>Mi Ruta · Conductor</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="../shared/icon-conductor.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="demo" class="demo-bar" hidden>Modo demo: los pasajeros de otros teléfonos no te ven</div>
+
+  <main id="vista-registro" class="reg">
+    <div class="brand big"><img src="../shared/icon-conductor.svg" alt="">Mi Ruta</div>
+    <h1>Soy conductor</h1>
+    <p class="muted">Regístrate una vez. Cambias de ruta cuando quieras.</p>
+    <form id="form-registro">
+      <label class="field">Nombre o número de unidad
+        <input id="nombre" required maxlength="30" placeholder="Ej. Carrito 12" autocomplete="off">
+      </label>
+      <div class="field">Tipo de unidad<div class="tipo" role="radiogroup">
+        <label><input type="radio" name="tipo" value="carrito" checked> <span class="ico" data-ico="carrito"></span> Carrito</label>
+        <label><input type="radio" name="tipo" value="bus"> <span class="ico" data-ico="bus"></span> Bus</label>
+      </div></div>
+      <label class="field">Ruta que trabajas hoy
+        <select id="ruta" required></select>
+      </label>
+      <button class="primary" type="submit">Guardar y continuar</button>
+    </form>
+  </main>
+
+  <main id="vista-ruta" class="drive" hidden>
+    <header>
+      <div><b id="perfil-nombre"></b><br><span id="perfil-ruta" class="muted"></span></div>
+      <button id="btn-cambiar" class="link">Cambiar</button>
+    </header>
+
+    <section id="estado" class="hero" data-estado="idle" aria-live="polite">
+      <div id="estado-icono" aria-hidden="true">•</div>
+      <div id="estado-texto">SIN INICIAR</div>
+      <small id="estado-sub">Toca “Iniciar recorrido” para compartir tu ubicación</small>
+    </section>
+
+    <section class="controls">
+      <button id="btn-iniciar" class="primary">Iniciar recorrido</button>
+      <div id="botones" class="big-row" hidden>
+        <button id="btn-cupo" class="big cupo">✓ Hay cupo</button>
+        <button id="btn-lleno" class="big lleno">✕ Lleno</button>
+      </div>
+      <div id="botones2" class="row2" hidden>
+        <button id="btn-descanso" class="ghost">Descanso (ocultarme)</button>
+        <button id="btn-terminar" class="ghost danger">Terminar</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="../shared/config.js"></script>
+  <script src="../shared/routes.js"></script>
+  <script src="../shared/vehicles.js"></script>
+  <script src="../shared/store.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

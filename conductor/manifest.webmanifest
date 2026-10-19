@@ -1,0 +1,13 @@
+{
+  "name": "Mi Ruta · Conductor",
+  "short_name": "Conductor",
+  "description": "Comparte tu ubicación y cupo con los pasajeros de Calabozo",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#086A68",
+  "theme_color": "#086A68",
+  "lang": "es",
+  "icons": [{ "src": "../shared/icon-conductor.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

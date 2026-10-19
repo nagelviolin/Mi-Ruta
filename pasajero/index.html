@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#086A68">
+  <title>Mi Ruta</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="../shared/icon-pasajero.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="map" aria-label="Mapa de Calabozo"></div>
+  <header class="brandbar"><div class="brand"><img src="../shared/icon-pasajero.svg" alt="">Mi Ruta</div><span id="demo" class="demo" hidden>Modo demo</span></header>
+  <button id="btn-locate" class="fab" aria-label="Usar mi ubicación"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="12" r="8"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></button>
+
+  <section id="sheet" class="sheet">
+    <button id="handle" class="handle" aria-label="Expandir o contraer panel"><span></span></button>
+
+    <div id="vista-lista">
+      <h2>Rutas cerca de ti</h2>
+      <p id="aviso" class="muted"></p>
+      <ul id="rutas" class="cards"></ul>
+    </div>
+
+    <div id="vista-ruta" hidden>
+      <button id="btn-volver" class="link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg> Todas las rutas</button>
+      <h2 id="ruta-titulo"></h2>
+      <ul id="unidades" class="cards"></ul>
+      <div class="report">
+        <p class="muted">¿Lo viste? Avisa a otros pasajeros</p>
+        <div class="btn-row">
+          <button data-report="vi">Lo vi aquí</button>
+          <button data-report="lleno">Va lleno</button>
+          <button data-report="nopasa">No pasa</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="../shared/config.js"></script>
+  <script src="../shared/routes.js"></script>
+  <script src="../shared/vehicles.js"></script>
+  <script src="../shared/geo.js"></script>
+  <script src="../shared/store.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "Mi Ruta",
+  "short_name": "Mi Ruta",
+  "description": "Mira qué carrito viene hacia ti en Calabozo",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#086A68",
+  "theme_color": "#086A68",
+  "lang": "es",
+  "icons": [{ "src": "../shared/icon-pasajero.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

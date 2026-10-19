@@ -34,3 +34,14 @@ Web/PWA (JS + MapLibre/Leaflet), Supabase (auth, realtime, tabla `units` con pos
 - Rutas reales y paradas de Calabozo (recorrerlas con conductores).
 - Nombre/colores/logo.
 - Diseño de pantallas (ver `docs/pantallas.md`).
+
+## Estructura actual (esqueleto MVP)
+- `pasajero/` → PWA del pasajero: rutas cercanas por ubicación, unidades en vivo, tiempo aproximado, reportes.
+- `conductor/` → PWA del conductor: registro con ruta, GPS, Hay cupo / Lleno, pantalla siempre encendida.
+- `shared/` → rutas (`routes.js`), datos (`store.js`), geometría, estilos y configuración.
+- Ambas apps son independientes pero comparten el mismo servidor en tiempo real.
+
+## Conectar el tiempo real (Supabase)
+1. Crea un proyecto en supabase.com y ejecuta `docs/supabase.sql` en el SQL Editor.
+2. Pega la URL y la clave `anon` en `shared/config.js`.
+3. Sin eso, las apps funcionan en MODO DEMO (solo el mismo navegador).
