@@ -12,6 +12,7 @@
 
   if (useSb) {
     const sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseKey);
+    Store.sb = sb;
     const toUnit = (r) => ({ id: r.id, nombre: r.nombre, ruta: r.ruta, tipo: r.tipo, estado: r.estado, lat: r.lat, lng: r.lng, updated: Date.parse(r.updated_at) });
     const load = async () => {
       const { data, error } = await sb.from('units').select('*').gte('updated_at', new Date(Date.now() - KEEP_MS).toISOString());

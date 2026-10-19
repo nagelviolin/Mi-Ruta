@@ -15,7 +15,38 @@
 <body>
   <div id="demo" class="demo-bar" hidden>Modo demo: los pasajeros de otros teléfonos no te ven</div>
 
-  <main id="vista-registro" class="reg">
+  <main id="vista-auth" class="reg" hidden>
+    <div class="brand big"><img src="../shared/icon-conductor.svg" alt="">Mi Ruta</div>
+    <h1>Soy conductor</h1>
+    <div class="seg" role="tablist">
+      <button type="button" id="seg-entrar" role="tab" aria-selected="true">Entrar</button>
+      <button type="button" id="seg-crear" role="tab" aria-selected="false">Crear cuenta</button>
+    </div>
+    <form id="form-auth">
+      <label class="field">Usuario
+        <input id="auth-user" required minlength="3" maxlength="20" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="Ej. jperez">
+      </label>
+      <label class="field" id="f-nombre" hidden>Tu nombre
+        <input id="auth-nombre" maxlength="40" autocomplete="name" placeholder="Nombre y apellido">
+      </label>
+      <label class="field">Contraseña
+        <input id="auth-pass" type="password" required minlength="6" autocomplete="current-password" placeholder="Mínimo 6 caracteres">
+      </label>
+      <p id="auth-error" class="error" role="alert" hidden></p>
+      <button class="primary" type="submit" id="auth-submit">Entrar</button>
+    </form>
+  </main>
+
+  <main id="vista-pendiente" class="reg" hidden>
+    <div class="brand big"><img src="../shared/icon-conductor.svg" alt="">Mi Ruta</div>
+    <h1>Cuenta en revisión</h1>
+    <p class="muted">Tu cuenta ya está creada. Un administrador debe aprobarla antes de que puedas aparecer en el mapa. Esta pantalla se actualiza sola.</p>
+    <p id="pend-estado" class="muted" aria-live="polite"></p>
+    <button class="primary" id="btn-revisar" type="button">Revisar ahora</button>
+    <button class="link centrado" id="btn-salir2" type="button">Salir</button>
+  </main>
+
+  <main id="vista-registro" class="reg" hidden>
     <div class="brand big"><img src="../shared/icon-conductor.svg" alt="">Mi Ruta</div>
     <h1>Soy conductor</h1>
     <p class="muted">Regístrate una vez. Cambias de ruta cuando quieras.</p>
@@ -37,7 +68,7 @@
   <main id="vista-ruta" class="drive" hidden>
     <header>
       <div><b id="perfil-nombre"></b><br><span id="perfil-ruta" class="muted"></span></div>
-      <button id="btn-cambiar" class="link">Cambiar</button>
+      <div class="hbtns"><button id="btn-cambiar" class="link">Cambiar</button><button id="btn-salir" class="link" hidden>Salir</button></div>
     </header>
 
     <section id="estado" class="hero" data-estado="idle" aria-live="polite">
